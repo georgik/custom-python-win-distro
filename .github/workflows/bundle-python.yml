@@ -16,5 +16,5 @@ jobs:
       - name: Archive artifact
         uses: actions/upload-artifact@v2
         with:
-          name: python-embed-amd64-venv
+          name: python-3.8.6-embed-amd64-venv
           path: python/
