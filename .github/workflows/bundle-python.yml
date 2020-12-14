@@ -1,10 +1,10 @@
-name: custom-python-win-distro
+name: bundle-python-embed-venv
 
 on: push
 
 jobs:
   build-distro:
-    name: Build custom distro
+    name: Bundle Windows Embeddable Python with pip and virtualenv
     runs-on: windows-latest
 
     steps:
@@ -13,9 +13,8 @@ jobs:
       - name: Run Bundle script
         run: .\Bundle-Python.ps1 -PythonVersion "3.8.6"
         shell: pwsh
-      - name: Archive artifacts
+      - name: Archive artifact
         uses: actions/upload-artifact@v2
         with:
           name: python-embed-amd64-venv
           path: python/
-
