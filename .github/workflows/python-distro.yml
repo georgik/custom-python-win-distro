@@ -8,6 +8,7 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - name: Display the path
-        run: echo ${env:PATH}
+      - name: Run Bundle script
+        run: .\Bundle-Python.ps1
         shell: pwsh
+
