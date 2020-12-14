@@ -17,5 +17,5 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: python-embed-amd64-venv
-          path: Python38/
+          path: python/
 

@@ -8,7 +8,8 @@ param (
 # Transform version name to short form used in file names 3.8.6 -> 38
 $VersionItems = $PythonVersion.Split(".")
 $ShortPythonVersion = $VersionItems[0] + $VersionItems[1]
-$PythonDirectory = "Python${ShortPythonVersion}"
+#$PythonDirectory = "Python${ShortPythonVersion}"
+$PythonDirectory = "python"
 
 # Prepare Embedded Python
 Invoke-WebRequest -Uri "https://www.python.org/ftp/python/${PythonVersion}/python-${PythonVersion}-embed-amd64.zip" -OutFile python.zip
