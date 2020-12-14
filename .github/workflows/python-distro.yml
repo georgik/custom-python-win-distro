@@ -11,7 +11,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Run Bundle script
-        run: .\Bundle-Python.ps1 "3.8.6"
+        run: .\Bundle-Python.ps1 -PythonVersion "3.8.6"
         shell: pwsh
       - name: Archive production artifacts
         uses: actions/upload-artifact@v2
