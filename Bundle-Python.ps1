@@ -16,7 +16,7 @@ Invoke-WebRequest -Uri "https://bootstrap.pypa.io/get-pip.py" -Out "get-pip.py"
 # Embedded version does not contain working copy for virtualenv.
 Invoke-WebRequest -Uri "https://www.python.org/ftp/python/3.8.6/python-3.8.6-amd64.exe" -Out "python-amd64.exe"
 .\python-amd64.exe /quiet /passive TargetDir=${pwd}\temp-python3
-$InstallerProcess = Get-Process python-amd64.exe
+$InstallerProcess = Get-Process python-amd64
 Wait-Process -Id $InstallerProcess.id
 mkdir python\Lib\venv\scripts\nt
 Copy-Item temp-python3\Lib\venv\scripts\nt\*.exe python\Lib\venv\scripts\nt
