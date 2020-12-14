@@ -20,8 +20,8 @@ Remove-Item "python.zip"
 
 # Virtualenv layer
 Invoke-WebRequest -Uri "https://bootstrap.pypa.io/get-pip.py" -Out "get-pip.py"
-.\python\python.exe "get-pip.py"
-.\python\python.exe -m pip install virtualenv
+& .\${PythonDirectory}\python.exe "get-pip.py"
+& .\${PythonDirectory}\python.exe -m pip install virtualenv
 
 # Virtualenv helper files must be extracted from main python.
 # Embedded version does not contain working copy for virtualenv.
