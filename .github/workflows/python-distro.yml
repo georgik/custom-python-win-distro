@@ -8,7 +8,14 @@ jobs:
     runs-on: windows-latest
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
       - name: Run Bundle script
         run: .\Bundle-Python.ps1
         shell: pwsh
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: custom-python-win
+          path: python.zip
 
