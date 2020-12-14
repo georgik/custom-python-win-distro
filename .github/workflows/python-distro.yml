@@ -13,9 +13,9 @@ jobs:
       - name: Run Bundle script
         run: .\Bundle-Python.ps1 -PythonVersion "3.8.6"
         shell: pwsh
-      - name: Archive production artifacts
+      - name: Archive artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: custom-python-win
-          path: python-3.8.6-embed-amd64-venv.zip
+          name: python-embed-amd64-venv
+          path: Python38/
 
