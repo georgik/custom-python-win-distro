@@ -14,8 +14,10 @@ Invoke-WebRequest -Uri "https://bootstrap.pypa.io/get-pip.py" -Out "get-pip.py"
 
 # Virtualenv helper files must be extracted from main python.
 # Embedded version does not contain working copy for virtualenv.
-iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-choco install --no-progress --install-directory="${pwd}\temp-python3" python3 -Y --version=3.8.6
+Invoke-WebRequest -Uri "https://www.python.org/ftp/python/3.8.6/python-3.8.6-amd64.exe" -Out "python-amd64.exe"
+.\python-amd64.exe /quiet /passive TargetDir=${pwd}\temp-python3
+$InstallerProcess = Get-Process python-amd64.exe
+Wait-Process -Id $InstallerProcess.id
 mkdir python\Lib\venv\scripts\nt
 Copy-Item temp-python3\Lib\venv\scripts\nt\*.exe python\Lib\venv\scripts\nt
 
