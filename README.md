@@ -39,7 +39,7 @@ PowerShell:
 
 Result Python distribution will be available in python directory.
 
-### How to build with GitLab actions
+### How to build with GitHub Actions
 
 Check the version of Python in ```.github/workflow/bundle-python.yaml```.
 Commit the change and check Actions at GitHub.com.
