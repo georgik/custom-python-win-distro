@@ -1,0 +1,13 @@
+name: custom-python-win-distro
+
+on: push
+
+jobs:
+  build-distro:
+    name: Build custom distro
+    runs-on: windows-latest
+
+    steps:
+      - name: Display the path
+        run: echo ${env:PATH}
+        shell: pwsh
