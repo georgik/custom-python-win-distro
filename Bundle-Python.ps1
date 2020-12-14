@@ -13,7 +13,7 @@ $PythonDirectory = "Python${ShortPythonVersion}"
 # Prepare Embedded Python
 Invoke-WebRequest -Uri "https://www.python.org/ftp/python/${PythonVersion}/python-${PythonVersion}-embed-amd64.zip" -OutFile python.zip
 Expand-Archive -LiteralPath "python.zip" -DestinationPath "${PythonDirectory}"
-Expand-Archive -LiteralPath "python\python${ShortPythonVersion}.zip" -DestinationPath "python\Lib"
+Expand-Archive -LiteralPath "${PythonDirectory}\python${ShortPythonVersion}.zip" -DestinationPath "${PythonDirectory}\Lib"
 Remove-Item "${PythonDirectory}\python${ShortPythonVersion}.zip"
 Remove-Item "${PythonDirectory}\python${ShortPythonVersion}._pth"
 Remove-Item "python.zip"
