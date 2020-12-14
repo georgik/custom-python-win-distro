@@ -29,7 +29,7 @@ Invoke-WebRequest -Uri "https://www.python.org/ftp/python/${PythonVersion}/pytho
 .\python-amd64.exe /quiet /passive TargetDir=${pwd}\temp-python3
 $InstallerProcess = Get-Process python-amd64
 Wait-Process -Id $InstallerProcess.id
-mkdir python\Lib\venv\scripts\nt
+mkdir ${PythonDirectory}\Lib\venv\scripts\nt
 Copy-Item temp-python3\Lib\venv\scripts\nt\*.exe ${PythonDirectory}\Lib\venv\scripts\nt
 
 # Create final zip - GitHub performs compression of artifacts automatically
