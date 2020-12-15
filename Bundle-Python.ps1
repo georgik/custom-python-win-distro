@@ -34,6 +34,7 @@ if ($null -eq (Get-Command "python.exe" -ErrorAction SilentlyContinue))  {
     Wait-Process -Id $InstallerProcess.id
     $PythonVenvScripts = temp-python3\Lib\venv\scripts\nt
 } else {
+    python -m pip install virtualenv
     python -m virtualenv temp-python3
     $PythonVenvScripts = "temp-python3\Scripts"
 }
