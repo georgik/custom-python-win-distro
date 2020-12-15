@@ -26,7 +26,7 @@ The official version has the following limitations:
     * this file controls behavior of imports when starting Python
 * download get-pip.py and install pip
 * pip install virtualenv
-* download full version of python and copy Lib\\venv\\scripts\\nt\\*.exe to python bundle
+* download or use full version of python and copy Lib\\venv\\scripts\\nt\\*.exe to python bundle
     * during the creation of virtualenv these python.exe and pythonw.exe files are being copied to virtual environment location
     * these two files are different from python.exe and pythonw.exe in the top Python directory
 

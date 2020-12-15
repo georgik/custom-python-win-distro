@@ -26,12 +26,19 @@ Invoke-WebRequest -Uri "https://bootstrap.pypa.io/get-pip.py" -Out "get-pip.py"
 
 # Virtualenv helper files must be extracted from main python.
 # Embedded version does not contain working copy for virtualenv.
-Invoke-WebRequest -Uri "https://www.python.org/ftp/python/${PythonVersion}/python-${PythonVersion}-amd64.exe" -Out "python-amd64.exe"
-.\python-amd64.exe /quiet /passive TargetDir=${pwd}\temp-python3
-$InstallerProcess = Get-Process python-amd64
-Wait-Process -Id $InstallerProcess.id
+# If Python is not available then install one
+if ((Get-Command "python.exe" -ErrorAction SilentlyContinue) -eq $null)  {
+    Invoke-WebRequest -Uri "https://www.python.org/ftp/python/${PythonVersion}/python-${PythonVersion}-amd64.exe" -Out "python-amd64.exe"
+    .\python-amd64.exe /quiet /passive TargetDir=${pwd}\temp-python3
+    $InstallerProcess = Get-Process python-amd64
+    Wait-Process -Id $InstallerProcess.id
+    $PythonVenvScripts = temp-python3\Lib\venv\scripts\nt
+} else {
+    python -m virtualenv temp-python3
+    $PythonVenvScripts = temp-python3
+}
 mkdir ${PythonDirectory}\Lib\venv\scripts\nt
-Copy-Item temp-python3\Lib\venv\scripts\nt\*.exe ${PythonDirectory}\Lib\venv\scripts\nt
+Copy-Item ${PythonVenvScripts}\python.exe ${PythonDirectory}\Lib\venv\scripts\nt
 
 # Create final zip - GitHub performs compression of artifacts automatically
 #Compress-Archive -Path "python" -DestinationPath "python.zip"
