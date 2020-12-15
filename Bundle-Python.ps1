@@ -35,7 +35,7 @@ if ((Get-Command "python.exe" -ErrorAction SilentlyContinue) -eq $null)  {
     $PythonVenvScripts = temp-python3\Lib\venv\scripts\nt
 } else {
     python -m virtualenv temp-python3
-    $PythonVenvScripts = temp-python3
+    $PythonVenvScripts = "temp-python3"
 }
 mkdir ${PythonDirectory}\Lib\venv\scripts\nt
 Copy-Item ${PythonVenvScripts}\python.exe ${PythonDirectory}\Lib\venv\scripts\nt
