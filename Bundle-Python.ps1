@@ -40,6 +40,7 @@ if ($null -eq (Get-Command "python.exe" -ErrorAction SilentlyContinue))  {
 }
 mkdir ${PythonDirectory}\Lib\venv\scripts\nt
 Copy-Item ${PythonVenvScripts}\python.exe ${PythonDirectory}\Lib\venv\scripts\nt
+Copy-Item ${PythonVenvScripts}\pythonw.exe ${PythonDirectory}\Lib\venv\scripts\nt
 
 # Create final zip - GitHub performs compression of artifacts automatically
 #Compress-Archive -Path "python" -DestinationPath "python.zip"
