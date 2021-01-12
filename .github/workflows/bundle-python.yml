@@ -21,7 +21,7 @@ jobs:
         run: .\Bundle-Python.ps1 -PythonVersion "3.9.1"
         shell: pwsh
       - name: Zip Python build
-        run: zip -r python-3.9.1-embed-amd64-venv.zip python
+        run: Compress-Archive -Path "python\*" -DestinationPath python-3.9.1-embed-amd64-venv.zip python
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
